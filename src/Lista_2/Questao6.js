@@ -19,12 +19,10 @@ class Questao6{
                  let valor = this.lista.head.proximo.dado;
                   aux.append(valor);  
                 }
-                
                 this.lista.removeBeginning();
                 posicao++;
             }
         }
-     
         return aux.toString();  
     }
 

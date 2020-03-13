@@ -47,7 +47,6 @@ class ListaDuplamenteLigada {
 	removeBeginning() {
 		if (!this.isEmpty()) {
 			let tmp = this.head.proximo;
-
 			this.head = tmp;
 			this.head.anterior = null;
 		}
@@ -94,7 +93,6 @@ class ListaDuplamenteLigada {
 
 	addAt(posicao, dado) {
 		if (posicao >= this.size()) {
-			//adicionando no final
 			this.append(dado);
 		} else {
 			if (posicao <= 0) {
@@ -103,10 +101,8 @@ class ListaDuplamenteLigada {
 			} else {
 				let novo_no = new Node(dado);
 				let i = 1;
-
 				let aux_a = this.head;
 				let aux_b = this.head.proximo;
-
 				while (i != posicao) {
 					//iteração
 					aux_a = aux_b;
