@@ -47,13 +47,17 @@ class Lista {
 
 		let aux_a = this.head;
 		let aux_b = this.head.proximo;
-
+		let aux_c;
 		while (aux_b.proximo !== null) {
 			aux_a = aux_b;
 			aux_b = aux_b.proximo;
 		}
+		aux_c = aux_b.dado;
+		
 		aux_b = null;
 		aux_a.proximo = null;
+
+		return aux_c;
 	}
 
 	isEmpty() {
