@@ -1,6 +1,5 @@
 import Lista from "../src/Lista";
 
-
 let l;
 
 beforeEach(() => {
