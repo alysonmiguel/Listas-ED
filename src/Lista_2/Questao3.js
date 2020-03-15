@@ -2,22 +2,30 @@
 class Arranjo{
 
     constructor(){
-        this.lista = [];
+        this.array = [];
     }
 
 	add(dado) {
-        this.lista.unshift(dado)
+		let aux = [dado];
+		for (let i = 0; i < this.size(); i++) {
+			aux[i+1] = this.array[i]		
+		}
+		this.array = aux;
 	}
 
 	append(dado) {
-        this.lista.push(dado)
+        this.array[this.size()] = dado;
 	}
 
 	removeBeginning() {
 		if (this.isEmpty()) {
 			throw new Error("A lista está vazia.");
 		} else {
-            this.lista.shift();	
+			let aux = []
+			for (let i = 0; i < this.size(); i++) {
+				aux[i] = this.array[i+1];	
+			}
+			this.array = aux;
 		}
 	}
 
@@ -25,25 +33,61 @@ class Arranjo{
 		if (this.isEmpty()) {
 			throw new Error("A lista está vazia.");
 		}else{
-            this.lista.pop();
+            let aux = []
+			for (let i = 0; i < this.size() -1 ; i++) {
+				aux[i] = this.array[i];	
+			}
+			this.array = aux;
         }
 	}
 
 	isEmpty() {
-		return this.lista.length === 0;
+		return this.array[0] === undefined;
     }
-    
-	toString() {
-        return this.lista.toString();
+	
+	size(){
+		let i = 0
+		while(!(this.array[i] === undefined)){
+			i++
+		}
+		return i;
 	}
 
+	search(dado){
+		for (let i = 0; i < this.size(); i++) {
+			if(this.array[i] === dado){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	toString() {
+        let string = "";
+	
+		for (let i = 0; i < this.size(); i++) {
+			string += this.array[i] + (this.array[i+1] === undefined ? "" : "->");
+		}
+		return string;
+	}
+
+
 	addAt(posicao, dado) {
-		if (posicao >= this.lista.length)   {
+		if (posicao >= this.size())   {
 			this.append(dado);
-		} else if (posicao <= 0) {
+		} else if (posicao == 0) {
 				this.add(dado);
 			} else {
-                this.lista.splice(posicao, 0, dado);
+				let aux = [];
+				for (let i = 0, j = 0;  j < this.size(); i++, j++) {
+					if(posicao == i){
+						aux[i] = dado;
+						aux[++i] =  this.array[j];
+					}else{
+						aux[i] = this.array[j];
+					}
+				}
+				this.array = aux;
 			}
 		}
 }
