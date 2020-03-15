@@ -36,7 +36,8 @@ test("Adicionar em ordem", () => {
 	l.addInOrder(10);
 	l.addInOrder(40);
 	l.addInOrder(20);
-	expect(l.toString()).toBe("10->20->30->40");
+	l.removeDado(20);
+	expect(l.toString()).toBe("10->30->40");
 
 });
 

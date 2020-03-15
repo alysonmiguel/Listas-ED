@@ -60,6 +60,24 @@ class Lista {
 		return aux_c;
 	}
 
+	removeDado(dado) {
+		if (this.isEmpty()) {
+			return false;
+		} else {
+			let anterior = this.head;
+			let atual = this.head.proximo;
+			while (atual !== null) {
+				if (atual.dado === dado) {
+					anterior.proximo = atual.proximo;
+					return true
+				}
+				anterior = atual;
+				atual = atual.proximo;
+			}
+			return false
+		}
+	}
+
 	isEmpty() {
 		return this.head.proximo === null;
 	}
