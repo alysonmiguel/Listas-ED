@@ -7,11 +7,9 @@ class Pessoa{
         this.listaNome = new Lista();
     }
 
-
-
     addPessoa( nome, idade){
        this.ordemNome(nome, idade)
-       // this.listaNome.ordemIdade(nome, idade);
+       this.ordemIdade(nome, idade);
     }
 
     ordemNome(nome, idade){
@@ -27,42 +25,34 @@ class Pessoa{
             posicao++
             atual = atual.proximo;                 
         }
-        
-        if (nome === undefined) {
-            console.log(nome);    
-        }else{
+
+        if (!(nome === undefined)) {
             this.listaNome.append(nome);
             this.listaNome.append(idade);
         }
         return this.listaNome.toString();
     }
     
-    ordemIdade(){
-        return listaIdade.toString();
+    ordemIdade(nome, idade){
+        let atual = this.listaIdade.head.proximo;
+        let posicao = 0;
+        while (atual !== null) {
+            atual = atual.proximo;                 
+            if (atual.dado > idade) {
+                this.listaIdade.addAt(posicao, nome);
+                this.listaIdade.addAt(++posicao, idade);
+                return this.listaIdade.toString()
+            }
+            posicao++
+            atual = atual.proximo;                 
+        }
+        
+        if (!(idade === undefined)) {
+            this.listaIdade.append(nome);
+            this.listaIdade.append(idade);
+        }
+        return this.listaIdade.toString();
     }
-    
-
 }
 
 export default Pessoa;
-
-
-
-// let atual = this.listaNome.head.proximo;
-// let posicao = 0;
-
-// if(this.listaNome.size() == 0){
-//     this.listaNome.append(nome);
-//     return;
-// }else{   
-//     while (atual !== null) {
-//         console.log(atual.dado);
-//         if (atual.dado > nome) {
-//             this.listaNome.addAt(posicao, nome);
-//             return;
-//         }
-//         posicao++
-//         atual = atual.proximo;     
-//     }
-// }
-// this.listaNome.append(nome);

@@ -14,5 +14,5 @@ test("Inserindo pessoas", () => {
     l.addPessoa("daniel", 21)
     l.addPessoa("taniro", 34)
     expect(l.ordemNome()).toBe('alyson->20->daniel->21->maria->10->pedro->5->taniro->34');
-    // expect(l.ordemIdade()).toBe('2->3->4');
+    expect(l.ordemIdade()).toBe('pedro->5->maria->10->alyson->20->daniel->21->taniro->34');
 })
