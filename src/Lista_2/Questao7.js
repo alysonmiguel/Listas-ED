@@ -6,7 +6,7 @@ export default function escolherPosicao(remocaoSaldado, qtdSoldado){
     let anterior = lista.head;
     let atual = lista.head.proximo;
     let i = 1;  
-
+    
     if(remocaoSaldado == 1){
         return qtdSoldado;
     }
@@ -16,13 +16,12 @@ export default function escolherPosicao(remocaoSaldado, qtdSoldado){
     }
 
     while (lista.size() != 1){
-        console.log(lista.size());
         while(atual != null){
             if(i == remocaoSaldado){
                 let tem = atual.dado;
                 atual = atual.proximo;
                 lista.removeDado(tem);
-                i = 1
+                i = 1;
             }else{   
                 anterior = atual;
 				atual = atual.proximo;
